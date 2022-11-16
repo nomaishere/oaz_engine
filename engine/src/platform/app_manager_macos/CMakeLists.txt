@@ -34,6 +34,7 @@ set(APP_SOURCE_FILE
         ./Application/AAPLAppDelegate.m
         ./Renderer/AAPLRenderer.m
         ./Renderer/AAPLShaders.metal
+        Application/OAZWindowDelegate.m
         )
 
 set(CUSTOM_SOURCE_HEADER_FILE
@@ -49,7 +50,8 @@ set(APP_HEADER_FILE
         ./Application/AAPLAppDelegate.h
         ./Application/AAPLConfig.h
         ./Renderer/AAPLRenderer.h
-        ./Renderer/AAPLShaderTypes.h)
+        ./Renderer/AAPLShaderTypes.h
+        Application/OAZWindowDelegate.h)
 
 add_executable(
         ${CUR_TARGET}
