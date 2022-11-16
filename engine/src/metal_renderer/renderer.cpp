@@ -16,8 +16,8 @@ Renderer::~Renderer()
     _pVertexPositionsBuffer->release();
     _pVertexColorsBuffer->release();
     _pPSO->release();
-    _pCommandQueue->release();
-    _pDevice->release();
+    _pCommandQueue->release();    _pDevice->release();
+
 }
 
 #include <iostream>

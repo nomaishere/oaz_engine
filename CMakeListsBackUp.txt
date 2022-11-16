@@ -1,0 +1,45 @@
+cmake_minimum_required(VERSION 3.23)
+
+set(CUR_TARGET oaz_engine)
+project(${CUR_TARGET} VERSION 0.1.0)
+
+set(ENGINE_BUILD_TARGET macos)
+set(APPLICATION_BUILD_TARGET macos)
+
+if (${ENGINE_BUILD_TARGET} STREQUAL "macos")
+    add_subdirectory(engine/src/metal_renderer)
+    add_subdirectory(engine/src/platform/app_manager_macos)
+    find_library(Metal_Renderer metal_renderer HINTS "${CMAKE_CURRENT_SOURCE_DIR}/cmake-build-debug/engine/src/metal_renderer" REQUIRED)
+    find_library(App_Manager_MacOS app_manager_macos HINTS "${CMAKE_CURRENT_SOURCE_DIR}/cmake-build-debug/engine/src/platform/app_manager_macos" REQUIRED)
+
+    #file(GLOB_RECURSE APP_MANAGER_MACOS_SOURCES engine/src/platform/app_manager_macos/*.cpp)
+    #add_executable(${CUR_TARGET} MACOSX_BUNDLE ${APP_MANAGER_MACOS_SOURCES} app/main.cpp)
+
+    # file(GLOB_RECURSE APP_SOURCES app/*.cpp)
+    # add_executable(${CUR_TARGET} MACOSX_BUNDLE ${APP_SOURCES})
+
+    add_executable(${CUR_TARGET} MACOSX_BUNDLE app/main.cpp)
+
+    #add_dependencies(${CUR_TARGET} metal_Renderer)
+    set_target_properties(${CUR_TARGET} PROPERTIES
+            BUNDLE True
+            MACOSX_BUNDLE_GUI_IDENTIFIER my.domain.style.identifier.${CUR_TARGET}
+            MACOSX_BUNDLE_NAME ${CUR_TARGET}
+            MACOSX_BUNDLE_BUNDLE_VERSION "0.1"
+            MACOSX_BUNDLE_SORT_VERSION_STRING "0.1"
+            MACOSX_BUNDLE_INFO_PLIST ${CMAKE_SOURCE_DIR}/MacOSXBundleInfo.plist.in
+            )
+
+    target_include_directories(${CUR_TARGET} PRIVATE
+            engine/src/platform/app_manager_macos
+            engine/src/metal_renderer
+            )
+
+    target_compile_features(${CUR_TARGET} PRIVATE cxx_std_17)
+
+    target_link_libraries(
+            ${CUR_TARGET}
+            ${Metal_Renderer}
+            ${App_Manager_MacOS}
+    )
+endif ()
