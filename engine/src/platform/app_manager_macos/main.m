@@ -76,7 +76,7 @@ int main(int argc, const char *argv[]) {
 
 
     TickManager *_tickManager = [[TickManager alloc] init];
-    [_tickManager startTickLoop];
+    [_tickManager startFixedTickLoop];
 
     while (1) {
         getEventQueue();

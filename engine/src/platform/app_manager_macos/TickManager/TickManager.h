@@ -2,8 +2,8 @@
 
 @interface TickManager : NSObject
 
-- (void)startTickLoop;
+- (void)startFixedTickLoop;
 
-- (void)runTickLoop;
+- (void)run60TickPerSecondLoop;
 @end
 
