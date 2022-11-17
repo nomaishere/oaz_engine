@@ -32,6 +32,7 @@
     return [CAMetalLayer layer];
 }
 
+// TODO 이것도 윈도우가 꺼질 때 두번 실행됨
 - (void)viewDidMoveToWindow {
     NSLog(@"[ OAZView ] viewDidMoveToWindo() ");
     [super viewDidMoveToWindow];
@@ -54,6 +55,7 @@
 }
 
 - (void)windowWillClose:(NSNotification *)_pNotification {
+    NSLog(@"[ OAZView ][ Cleanup ]: stop CVDisplayLink");
     if (_pNotification.object == self.window) {
         CVDisplayLinkStop(_cvDisplayLink);
     }

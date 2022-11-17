@@ -9,23 +9,6 @@ find_library(Metal Metal REQUIRED)
 find_library(CoreVideo CoreVideo REQUIRED)
 find_library(QuartzCore QuartzCore REQUIRED)
 
-# find_library(AppKit AppKit HINTS "${CMAKE_SOURCE_DIR}/engine/external_dependencies" REQUIRED)
-# find_library(Metal Metal HINTS "${CMAKE_SOURCE_DIR}/engine/external_dependencies" REQUIRED)
-# find_library(MetalKit MetalKit HINTS "${CMAKE_SOURCE_DIR}/engine/external_dependencies" REQUIRED)
-# find_library(QuartzCore QuartzCore HINTS "${CMAKE_SOURCE_DIR}/engine/external_dependencies" REQUIRED)
-# find_library(Foundation Foundation HINTS "${CMAKE_SOURCE_DIR}/engine/external_dependencies" REQUIRED)
-# find_library(Metal_Renderer metal_renderer HINTS "${CMAKE_SOURCE_DIR}/cmake-build-debug/engine/src/metal_renderer" REQUIRED)
-
-#file(GLOB_RECURSE APP_MANAGER_MACOS_SOURCE . *.cpp)
-#add_library(${CUR_TARGET} STATIC ${APP_MANAGER_MACOS_SOURCE})
-
-
-
-#target_include_directories(${CUR_TARGET} PUBLIC
-    #    ${CMAKE_SOURCE_DIR}/engine/external_dependencies/metal-cpp
-    #    ${CMAKE_SOURCE_DIR}/engine/external_dependencies/metal-cpp-extensions
-    #    ${CMAKE_SOURCE_DIR}/engine/src/metal_renderer
-#        )
 
 add_compile_definitions(TARGET_MACOS=1)
 
@@ -33,17 +16,11 @@ set(APP_SOURCE_FILE
         ./main.m
         ./Application/AAPLAppDelegate.m
         ./Renderer/AAPLRenderer.m
-        ./Renderer/AAPLShaders.metal
-        Application/OAZWindowDelegate.m
-        )
-
-set(CUSTOM_SOURCE_HEADER_FILE
+        ./Application/OAZWindowDelegate.m
         ./Application/OAZView.m
-        ./Application/OAZView.h
         ./Application/OAZViewController.m
-        ./Application/OAZViewController.h
-        )
 
+        )
 
 
 set(APP_HEADER_FILE
@@ -51,7 +28,11 @@ set(APP_HEADER_FILE
         ./Application/AAPLConfig.h
         ./Renderer/AAPLRenderer.h
         ./Renderer/AAPLShaderTypes.h
-        Application/OAZWindowDelegate.h)
+        ./Application/OAZWindowDelegate.h
+        ./Application/OAZView.h
+        ./Application/OAZViewController.h
+
+        )
 
 add_executable(
         ${CUR_TARGET}
