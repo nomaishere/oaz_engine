@@ -19,7 +19,7 @@ set(APP_SOURCE_FILE
         ./Application/OAZWindowDelegate.m
         ./Application/OAZView.m
         ./Application/OAZViewController.m
-
+        ./TickManager/TickManager.m
         )
 
 
@@ -31,7 +31,7 @@ set(APP_HEADER_FILE
         ./Application/OAZWindowDelegate.h
         ./Application/OAZView.h
         ./Application/OAZViewController.h
-
+        ./TickManager/TickManager.h
         )
 
 add_executable(
