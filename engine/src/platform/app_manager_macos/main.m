@@ -1,5 +1,5 @@
 #import <Cocoa/Cocoa.h>
-#import "Application/AAPLAppDelegate.h"
+#import "Application/CocoaAppDelegate.h"
 #import "TickManager/TickManager.h"
 
 #define RENDER_ON_MAIN_THREAD 0
@@ -53,7 +53,7 @@ void getEventQueue() {
 
 
 int main(int argc, const char *argv[]) {
-    AAPLAppDelegate *appDelegate = [AAPLAppDelegate alloc];
+    CocoaAppDelegate *appDelegate = [CocoaAppDelegate alloc];
     [appDelegate init];
     [NSApplication sharedApplication];
 
@@ -81,7 +81,7 @@ int main(int argc, const char *argv[]) {
     while (1) {
         getEventQueue();
 
-        // TODO Command + Q 로 Application 을 종료하면 OAZWindowDelegate 에서는 해당 Notification 을 받지만 이곳에선 처리가 안됨. 해결 필요
+        // TODO Command + Q 로 Application 을 종료하면 CocoaWindowDelegate 에서는 해당 Notification 을 받지만 이곳에선 처리가 안됨. 해결 필요
         if ([testObject isWillTerminate]) {
             NSLog(@"[ Main ][ Cleanup ]: Terminate Main Loop");
             break;

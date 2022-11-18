@@ -1,11 +1,11 @@
-#import "OAZView.h"
+#import "CocoaView.h"
 
-@implementation OAZView {
+@implementation CocoaView {
     CVDisplayLinkRef _cvDisplayLink;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
-    NSLog(@"STEP: initWithFrame in OAZView.m");
+    NSLog(@"STEP: initWithFrame in CocoaView.m");
     self = [super initWithFrame:frame];
     if (self) {
         [self initMore];
@@ -14,7 +14,7 @@
 }
 
 - (void)initMore {
-    NSLog(@"STEP: initMore in OAZView.m");
+    NSLog(@"STEP: initMore in CocoaView.m");
 
     self.name = @"test view name";
     // view 를 layer-backed view 로 변경함.
@@ -34,7 +34,7 @@
 
 // TODO 이것도 윈도우가 꺼질 때 두번 실행됨
 - (void)viewDidMoveToWindow {
-    NSLog(@"[ OAZView ] viewDidMoveToWindo() ");
+    NSLog(@"[ CocoaView ] viewDidMoveToWindo() ");
     [super viewDidMoveToWindow];
 
     // setup CVDisplayLink for screen
@@ -55,7 +55,7 @@
 }
 
 - (void)windowWillClose:(NSNotification *)_pNotification {
-    NSLog(@"[ OAZView ][ Cleanup ]: stop CVDisplayLink");
+    NSLog(@"[ CocoaView ][ Cleanup ]: stop CVDisplayLink");
     if (_pNotification.object == self.window) {
         CVDisplayLinkStop(_cvDisplayLink);
     }
@@ -68,7 +68,7 @@ static CVReturn DispatchRenderLoop(CVDisplayLinkRef displayLink,
                                    CVOptionFlags *flagsOut,
                                    void *displayLinkContext) {
     @autoreleasepool {
-        OAZView *_pOazView = (__bridge OAZView *) displayLinkContext;
+        CocoaView *_pOazView = (__bridge CocoaView *) displayLinkContext;
         [_pOazView render];
     }
     return kCVReturnSuccess;

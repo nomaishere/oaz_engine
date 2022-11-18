@@ -1,22 +1,22 @@
-#import "OAZViewController.h"
+#import "CocoaViewController.h"
 
 
-@implementation OAZViewController {
+@implementation CocoaViewController {
     AAPLRenderer *_aaplRenderer;
 }
 
 // https://medium.com/hyperoslo/how-to-write-an-nsviewcontroller-without-interface-builder-on-macos-760283648f12
 - (void)loadView {
-    // create OAZView
-    NSLog(@"[ OAZViewController ] : loadView() ");
-    self.view = [[OAZView alloc] initWithFrame:_frameForViewCreation];
+    // create CocoaView
+    NSLog(@"[ CocoaViewController ] : loadView() ");
+    self.view = [[CocoaView alloc] initWithFrame:_frameForViewCreation];
 }
 
 - (void)viewDidLoad {
-    NSLog(@"[ OAZViewController ]: viewDidLoad() ");
+    NSLog(@"[ CocoaViewController ]: viewDidLoad() ");
     [super viewDidLoad];
 
-    OAZView *_pView = (OAZView *) self.view;
+    CocoaView *_pView = (CocoaView *) self.view;
 
     id <MTLDevice> device = MTLCreateSystemDefaultDevice();
     _pView.metalLayer.device = device;
@@ -30,7 +30,7 @@
 }
 
 - (void)initWithFrame:(CGRect)frame {
-    NSLog(@"[ OAZViewController ] : initWithFrame() ");
+    NSLog(@"[ CocoaViewController ] : initWithFrame() ");
     [super init];
     self.frameForViewCreation = frame;
 }

@@ -14,23 +14,23 @@ add_compile_definitions(TARGET_MACOS=1)
 
 set(APP_SOURCE_FILE
         ./main.m
-        ./Application/AAPLAppDelegate.m
+        Application/CocoaAppDelegate.m
         ./Renderer/AAPLRenderer.m
-        ./Application/OAZWindowDelegate.m
-        ./Application/OAZView.m
-        ./Application/OAZViewController.m
+        Application/CocoaWindowDelegate.m
+        Application/CocoaView.m
+        Application/CocoaViewController.m
         ./TickManager/TickManager.m
         )
 
 
 set(APP_HEADER_FILE
-        ./Application/AAPLAppDelegate.h
+        Application/CocoaAppDelegate.h
         ./Application/AAPLConfig.h
         ./Renderer/AAPLRenderer.h
         ./Renderer/AAPLShaderTypes.h
-        ./Application/OAZWindowDelegate.h
-        ./Application/OAZView.h
-        ./Application/OAZViewController.h
+        Application/CocoaWindowDelegate.h
+        Application/CocoaView.h
+        Application/CocoaViewController.h
         ./TickManager/TickManager.h
         )
 

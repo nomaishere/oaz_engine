@@ -1,8 +1,8 @@
 #include <AppKit/AppKit.h>
-#import "OAZView.h"
+#import "CocoaView.h"
 #import "../Renderer/AAPLRenderer.h"
 
-@interface OAZViewController : NSViewController <OAZViewDelegate>
+@interface CocoaViewController : NSViewController <OAZViewDelegate>
 
 @property (nonatomic) CGRect frameForViewCreation;
 

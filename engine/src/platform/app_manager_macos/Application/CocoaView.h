@@ -9,7 +9,7 @@
 @end
 
 
-@interface OAZView : NSView <CALayerDelegate>
+@interface CocoaView : NSView <CALayerDelegate>
 
 @property NSString *name;
 

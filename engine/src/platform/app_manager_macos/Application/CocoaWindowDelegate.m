@@ -1,6 +1,6 @@
-#import "OAZWindowDelegate.h"
+#import "CocoaWindowDelegate.h"
 
-@implementation OAZWindowDelegate
+@implementation CocoaWindowDelegate
 
 - (void)windowDidBecomeKey:(NSNotification *)notification {
     // NSLog(@"Window: become key");
@@ -23,7 +23,7 @@
 - (void)windowWillClose:(NSNotification *)notification {
     NSWindow *window = notification.object;
     if (window.isMainWindow) {
-        NSLog(@"[ OAZWindowDelegate ][ Cleanup ]: stop NSApp");
+        NSLog(@"[ CocoaWindowDelegate ][ Cleanup ]: stop NSApp");
     }
 }
 

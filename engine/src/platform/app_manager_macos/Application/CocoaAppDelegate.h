@@ -12,15 +12,15 @@ Application delegate for Metal Sample Code
 #endif
 
 
-#import "OAZView.h"
-#import "OAZViewController.h"
+#import "CocoaView.h"
+#import "CocoaViewController.h"
 
 #if TARGET_IOS || TARGET_TVOS
 @interface AAPLAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 #else
-@interface AAPLAppDelegate : NSObject <NSApplicationDelegate>
+@interface CocoaAppDelegate : NSObject <NSApplicationDelegate>
 
 #endif
 
