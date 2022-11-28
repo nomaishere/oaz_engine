@@ -93,7 +93,7 @@ static const MTLPixelFormat AAPLDepthPixelFormat = MTLPixelFormatDepth32Float;
                 { {  250,   250 },  { 1.f, 0.f, 1.f } },
             };
 
-            // Create a vertex buffer, and initialize it with the vertex data.
+            // Create a vertex buffer, and initialize it with the vertex stateList.
             _vertices = [_device newBufferWithBytes:quadVertices
                                              length:sizeof(quadVertices)
                                             options:MTLResourceStorageModeShared];

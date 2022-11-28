@@ -14,9 +14,7 @@ find_library(QuartzCore QuartzCore REQUIRED)
 find_library(Foundation Foundation REQUIRED)
 
 #file(GLOB_RECURSE METAL_RENDERER_SOURCE . *.cpp)
-#add_library(${CUR_TARGET} STATIC ${METAL_RENDERER_SOURCE})
-
-add_library(${CUR_TARGET} STATIC renderer.cpp)
+# add_library(${CUR_TARGET} STATIC ${METAL_RENDERER_SOURCE})
 
 target_include_directories(${CUR_TARGET} PRIVATE
         ${CMAKE_SOURCE_DIR}/engine/external_dependencies/metal-cpp

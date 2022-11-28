@@ -13,13 +13,14 @@ find_library(QuartzCore QuartzCore REQUIRED)
 add_compile_definitions(TARGET_MACOS=1)
 
 set(APP_SOURCE_FILE
-        ./main.m
+        main.m
         Application/CocoaAppDelegate.m
         ./Renderer/AAPLRenderer.m
         Application/CocoaWindowDelegate.m
         Application/CocoaView.m
         Application/CocoaViewController.m
-        ./TickManager/TickManager.m
+        TickManager/TickManager.mm
+        Bridge/oazapp_bridge.mm
         )
 
 
@@ -32,6 +33,7 @@ set(APP_HEADER_FILE
         Application/CocoaView.h
         Application/CocoaViewController.h
         ./TickManager/TickManager.h
+        Bridge/oazapp_bridge.h
         )
 
 add_executable(
@@ -39,7 +41,6 @@ add_executable(
         MACOSX_BUNDLE
         ${APP_SOURCE_FILE}
         ${APP_HEADER_FILE}
-        ${CUSTOM_SOURCE_HEADER_FILE}
 )
 
 

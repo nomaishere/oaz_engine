@@ -1,17 +1,18 @@
 #import <Cocoa/Cocoa.h>
 #import "Application/CocoaAppDelegate.h"
 #import "TickManager/TickManager.h"
+#import "Bridge/oazapp_bridge.h"
 
 #define RENDER_ON_MAIN_THREAD 0
 #define ANIMATION_RENDERING   1
 #define AUTOMATICALLY_RESIZE  1
 #define CREATE_DEPTH_BUFFER   1
 
-@interface TestObject : NSObject
+@interface WindowCloseEventListener : NSObject
 @property BOOL isAppWillTerminate;
 @end
 
-@implementation TestObject
+@implementation WindowCloseEventListener
 
 - (void)makeAppTerminate {
     self.isAppWillTerminate = YES;
@@ -57,38 +58,36 @@ int main(int argc, const char *argv[]) {
     [appDelegate init];
     [NSApplication sharedApplication];
 
-    // 나중에 봐야함
     [NSApp setActivationPolicy:NSApplicationActivationPolicyRegular];
     [NSApp setPresentationOptions:NSApplicationPresentationDefault];
-
-    // 나중에 봐야함22
     [NSApp activateIgnoringOtherApps:YES];
 
     [NSApp setDelegate:appDelegate];
-    [NSApp finishLaunching];
 
-    TestObject *testObject = [[TestObject alloc] init];
+    WindowCloseEventListener *_windowCloseEventListener = [[WindowCloseEventListener alloc] init];
     NSNotificationCenter *_pNotificationCenter = [NSNotificationCenter defaultCenter];
-    [_pNotificationCenter addObserver:testObject
+    [_pNotificationCenter addObserver:_windowCloseEventListener
                              selector:@selector(makeAppTerminate)
                                  name:NSWindowWillCloseNotification
                                object:NSApp.mainWindow];
 
 
-    TickManager *_tickManager = [[TickManager alloc] init];
-    [_tickManager startFixedTickLoop];
+    [NSApp finishLaunching];
+
+    OazApp *_oazApp = [[OazApp alloc] init];
+    [_oazApp setTickManager:[[TickManager alloc] init]];
+    _oazApp.tickManager.startFixedTickLoop;
 
     while (1) {
         getEventQueue();
 
         // TODO Command + Q 로 Application 을 종료하면 CocoaWindowDelegate 에서는 해당 Notification 을 받지만 이곳에선 처리가 안됨. 해결 필요
-        if ([testObject isWillTerminate]) {
+        if ([_windowCloseEventListener isWillTerminate]) {
             NSLog(@"[ Main ][ Cleanup ]: Terminate Main Loop");
             break;
         }
     }
     [NSApp terminate:nil];
-
 
     return 0;
 }

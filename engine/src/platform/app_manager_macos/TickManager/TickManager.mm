@@ -1,5 +1,6 @@
 #import "TickManager.h"
 
+
 @implementation TickManager
 
 - (void)startFixedTickLoop {
@@ -16,11 +17,12 @@
     NSTimeInterval prevLoopGapAverage = 0;
     NSDate *fullTime = [NSDate date];
     NSDate *date = [NSDate date];
-    while ([[NSThread currentThread] isCancelled] == false) {
+    while (![[NSThread currentThread] isCancelled]) {
         gapSumPerSecond = 0;
         fullTime = [NSDate now];
         for (int step = 0; step < 60; step++) {
             date = [NSDate now];
+
             // do something
             int a = 5;
             for (int i = 0; i < 30000; i++) {

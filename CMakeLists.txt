@@ -7,6 +7,5 @@ set(ENGINE_BUILD_TARGET macos)
 set(APPLICATION_BUILD_TARGET macos)
 
 add_subdirectory(app)
-
 add_subdirectory(engine)
 

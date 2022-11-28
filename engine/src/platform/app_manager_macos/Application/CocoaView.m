@@ -1,11 +1,11 @@
 #import "CocoaView.h"
+#import "../Renderer/AAPLRenderer.h"
 
 @implementation CocoaView {
     CVDisplayLinkRef _cvDisplayLink;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
-    NSLog(@"STEP: initWithFrame in CocoaView.m");
     self = [super initWithFrame:frame];
     if (self) {
         [self initMore];
@@ -14,17 +14,12 @@
 }
 
 - (void)initMore {
-    NSLog(@"STEP: initMore in CocoaView.m");
-
     self.name = @"test view name";
-    // view 를 layer-backed view 로 변경함.
     self.wantsLayer = YES;
     self.layerContentsRedrawPolicy = NSViewLayerContentsRedrawDuringViewResize;
 
     _metalLayer = (CAMetalLayer *) self.layer;
     self.layer.delegate = self;
-    NSLog(@"layer's frame width : %f height: %f", self.layer.frame.size.width, self.layer.frame.size.height);
-
 }
 
 // AppKit 이 해당 Method 를 호출해서 자동으로 underlying layer object 를 만듦.
@@ -34,7 +29,7 @@
 
 // TODO 이것도 윈도우가 꺼질 때 두번 실행됨
 - (void)viewDidMoveToWindow {
-    NSLog(@"[ CocoaView ] viewDidMoveToWindo() ");
+    NSLog(@"[ CocoaView ] viewDidMoveToWindow() ");
     [super viewDidMoveToWindow];
 
     // setup CVDisplayLink for screen
