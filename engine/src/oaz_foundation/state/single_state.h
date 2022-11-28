@@ -14,7 +14,6 @@ namespace oaz {
         uint16_t actorID;
         T data;
     };
-
 }
 
 #endif //APPLICATION_SINGLE_STATE_H

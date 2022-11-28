@@ -156,6 +156,7 @@ static const MTLPixelFormat AAPLDepthPixelFormat = MTLPixelFormatDepth32Float;
         AAPLUniforms uniforms;
 
 #if ANIMATION_RENDERING
+        //uniforms.scale = 0.5
         uniforms.scale = 0.5 + (1.0 + 0.5 * sin(_frameNum * 0.1));
 #else
         uniforms.scale = 1.0;

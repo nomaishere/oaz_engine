@@ -29,7 +29,7 @@ void Cube::destroy() {
 }
 
 void Cube::tick60ps() {
-    std::cout << "tick!" << std::endl;
+    std::cout << "tick from cube(actor)" << std::endl;
 }
 
 

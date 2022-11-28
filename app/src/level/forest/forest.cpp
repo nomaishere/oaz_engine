@@ -38,17 +38,32 @@ public:
         auto createActor =  (Cube*(*)())dlsym(lib_handle, "createActor");
         Cube* myCube;
         myCube = createActor();
-        myCube->tick60ps();
-
+        _pActor[0] = (oaz::Actor*)myCube;
     }
 
     void destroy() override {
-        std::cout << "test" << std::endl;
+        std::cout << "destroy forest" << std::endl;
+        for(auto & i : _pActor) {
+            std::cout << "delete!" << std::endl;
+            delete i;
+        }
     }
 
 };
 
+extern "C" {
+    class Forest* createLevel() {
+        Forest* temp;
+        temp = new Forest;
+        return temp;
+    }
+    void destroyLevel(Forest* level) {
+        level->destroy();
+        delete level;
+    }
+}
+/*
 int main() {
     auto *forest = new Forest();
     forest->init();
-}
+}*/

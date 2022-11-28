@@ -9,6 +9,8 @@ find_library(Metal Metal REQUIRED)
 find_library(CoreVideo CoreVideo REQUIRED)
 find_library(QuartzCore QuartzCore REQUIRED)
 
+find_library(l_forest l_forest HINTS ${CMAKE_SOURCE_DIR}/cmake/debug/app/src/level/forest REQUIRED)
+
 
 add_compile_definitions(TARGET_MACOS=1)
 
@@ -43,6 +45,8 @@ add_executable(
         ${APP_HEADER_FILE}
 )
 
+enable_language(OBJC)
+enable_language(OBJCXX)
 
 # ARC 활성화
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fobjc-arc")
@@ -56,9 +60,12 @@ set_target_properties(${CUR_TARGET} PROPERTIES
         MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/MacOSXBundleInfo.plist.in
         )
 
+target_include_directories(${CUR_TARGET} PRIVATE ${CMAKE_SOURCE_DIR}/engine/src/oaz_foundation)
+
 target_link_libraries(${CUR_TARGET} PUBLIC
         ${Cocoa}
         ${CoreVideo}
         ${Metal}
         ${QuartzCore}
+        ${l_forest}
         )

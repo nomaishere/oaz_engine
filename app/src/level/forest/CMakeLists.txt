@@ -8,8 +8,8 @@ find_library(oaz_foundation oaz_foundation HINTS "${CMAKE_SOURCE_DIR}/cmake/rele
 
 set(CUR_SOURCE forest.cpp)
 
-#add_library(${CUR_TARGET} SHARED ${CUR_SOURCE})
-add_executable(${CUR_TARGET} ${CUR_SOURCE})
+add_library(${CUR_TARGET} SHARED ${CUR_SOURCE})
+#add_executable(${CUR_TARGET} ${CUR_SOURCE})
 
 target_include_directories(${CUR_TARGET} PRIVATE ${CMAKE_SOURCE_DIR}/engine/src/oaz_foundation ${CMAKE_SOURCE_DIR}/app/src/actor/cube)
 

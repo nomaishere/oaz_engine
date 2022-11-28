@@ -76,7 +76,9 @@ int main(int argc, const char *argv[]) {
 
     OazApp *_oazApp = [[OazApp alloc] init];
     [_oazApp setTickManager:[[TickManager alloc] init]];
-    _oazApp.tickManager.startFixedTickLoop;
+    [_oazApp loadLevel];
+
+
 
     while (1) {
         getEventQueue();
