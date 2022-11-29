@@ -29,7 +29,7 @@ void Cube::destroy() {
 }
 
 void Cube::tick60ps() {
-    std::cout << "tick from cube(actor)" << std::endl;
+    std::cout << "tick!" << std::endl;
 }
 
 
@@ -42,15 +42,17 @@ uint32_t add(uint32_t a, uint32_t b) {
 void testWithExternC() {
     std::cout << "testWithExternC" << std::endl;
 }
-};
 
-class Cube* createActor() {
-    Cube* temp;
+
+class Cube *createActor() {
+    Cube *temp;
     temp = new Cube;
     return temp;
-};
+} ;
 
-void destroyActor(Cube* actor) {
+void destroyActor(Cube *actor) {
     actor->destroy();
     delete actor;
+}
+
 }

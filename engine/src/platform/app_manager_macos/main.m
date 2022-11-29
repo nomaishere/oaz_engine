@@ -1,6 +1,5 @@
 #import <Cocoa/Cocoa.h>
 #import "Application/CocoaAppDelegate.h"
-#import "TickManager/TickManager.h"
 #import "Bridge/oazapp_bridge.h"
 
 #define RENDER_ON_MAIN_THREAD 0
@@ -75,7 +74,6 @@ int main(int argc, const char *argv[]) {
     [NSApp finishLaunching];
 
     OazApp *_oazApp = [[OazApp alloc] init];
-    [_oazApp setTickManager:[[TickManager alloc] init]];
     [_oazApp loadLevel];
 
 
