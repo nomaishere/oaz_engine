@@ -1,0 +1,6 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Build Application &amp; Run" type="CompoundRunConfigurationType">
+    <toRun name="app_manager_macos" targetId="CMakeBuildProfile:Debug" type="CMakeRunConfiguration" />
+    <method v="2" />
+  </configuration>
+</component>

@@ -2,7 +2,6 @@
   <configuration default="false" name="app_manager_macos" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" REDIRECT_INPUT_PATH="$PROJECT_DIR$/cmake/debug/app/src/level/forest" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="application" TARGET_NAME="app_manager_macos" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="application" RUN_TARGET_NAME="app_manager_macos">
     <method v="2">
       <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      <option name="RunConfigurationTask" enabled="true" run_configuration_name="setDYLDpath" run_configuration_type="ShConfigurationType" />
     </method>
   </configuration>
 </component>

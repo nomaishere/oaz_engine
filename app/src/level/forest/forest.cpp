@@ -1,26 +1,8 @@
-//
-// Created by nomamac2 on 2022/11/26.
-//
 
 #include "oaz_foundation.h"
 #include "cube.h"
 #include <dlfcn.h>
 
-
-/*
-void (*testWithExternC)() = (void (*)()) dlsym(lib_handle, "testWithExternC");
-testWithExternC();
-
-uint32_t (*add)(uint32_t, uint32_t) = (uint32_t(*)(uint32_t, uint32_t)) dlsym(lib_handle, "add");
-uint32_t c = add(3, 5);
-
-uint32_t (*minNoExternC)(uint32_t, uint32_t) = (uint32_t(*)(uint32_t, uint32_t)) dlsym(lib_handle, "minNoExternC");
-uint32_t t = minNoExternC(5, 3);
-
-std::cout << t << std::endl;
-std::cout << "test2" << std::endl;
- */
-//void* tick60ps = dlsym(lib_handle, "")
 
 class Forest : oaz::Level {
 public:
@@ -62,8 +44,3 @@ extern "C" {
         delete level;
     }
 }
-/*
-int main() {
-    auto *forest = new Forest();
-    forest->init();
-}*/

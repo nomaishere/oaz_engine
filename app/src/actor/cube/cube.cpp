@@ -2,8 +2,9 @@
 // Created by nomamac2 on 2022/11/25.
 //
 
-#include "cube.h"
 //#include "cube.h"
+//#include "cube.h"
+#include "oaz_foundation.h"
 
 /*
 void Cube::init() {
@@ -20,7 +21,23 @@ void Cube::tick60ps() {
 }*/
 
 
-void Cube::init() {
+class Cube: oaz::Actor {
+public:
+    void init() override{
+        std::cout << "init" << std::endl;
+    }
+
+    void destroy() override{
+        std::cout << "destroy" << std::endl;
+    }
+
+    void tick60ps() override {
+        std::cout << "tick!" << std::endl;
+    }
+};
+
+/*
+void init() {
     std::cout << "init" << std::endl;
 }
 
@@ -31,17 +48,9 @@ void Cube::destroy() {
 void Cube::tick60ps() {
     std::cout << "tick!" << std::endl;
 }
-
+*/
 
 extern "C" {
-
-uint32_t add(uint32_t a, uint32_t b) {
-    return a + b;
-}
-
-void testWithExternC() {
-    std::cout << "testWithExternC" << std::endl;
-}
 
 
 class Cube *createActor() {

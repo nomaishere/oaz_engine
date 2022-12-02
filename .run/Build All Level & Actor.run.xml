@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Build All Level &amp; Actor" type="CompoundRunConfigurationType">
+    <toRun name="a_cube" targetId="CMakeBuildProfile:Debug" type="CMakeRunConfiguration" />
+    <toRun name="l_forest" targetId="CMakeBuildProfile:Debug" type="CMakeRunConfiguration" />
+    <method v="2" />
+  </configuration>
+</component>
