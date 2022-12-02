@@ -35,8 +35,8 @@ public:
         }
 
 
-        auto createActor =  (Cube*(*)())dlsym(lib_handle, "createActor");
-        Cube* myCube;
+        auto createActor =  (oaz::Actor*(*)())dlsym(lib_handle, "createActor");
+        oaz::Actor* myCube;
         myCube = createActor();
         _pActor[0] = (oaz::Actor*)myCube;
     }
