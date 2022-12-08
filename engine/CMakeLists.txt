@@ -5,4 +5,8 @@ project(${CUR_TARGET} VERSION 0.1.0)
 add_subdirectory(src/platform/app_manager_macos)
 add_subdirectory(src/oaz_foundation)
 
+# set(JSON_BuildTests OFF CACHE INTERNAL "")
+
+# add_subdirectory(external_dependencies/json)
+
 #add_dependencies(app_manager_macos metal_renderer)

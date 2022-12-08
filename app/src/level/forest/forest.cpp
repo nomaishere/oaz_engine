@@ -1,7 +1,8 @@
 
 #include "oaz_foundation.h"
-#include "cube.h"
+#include <iostream>
 #include <dlfcn.h>
+
 
 
 class Forest : oaz::Level {

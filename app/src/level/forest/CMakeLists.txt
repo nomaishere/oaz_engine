@@ -4,6 +4,7 @@ set(CUR_TARGET l_forest)
 project(${CUR_TARGET} VERSION 0.1.0)
 
 find_library(oaz_foundation oaz_foundation HINTS "${CMAKE_SOURCE_DIR}/cmake/release/engine/src/oaz_foundation" REQUIRED)
+find_package(nlohmann_json 3.2.0 REQUIRED)
 
 
 set(CUR_SOURCE forest.cpp)
@@ -16,5 +17,5 @@ target_include_directories(${CUR_TARGET} PRIVATE ${CMAKE_SOURCE_DIR}/engine/src/
 target_compile_features(${CUR_TARGET} PRIVATE cxx_std_17)
 
 target_link_libraries(${CUR_TARGET} PUBLIC
-        ${oaz_foundation})
+        ${oaz_foundation} nlohmann_json::nlohmann_json)
 

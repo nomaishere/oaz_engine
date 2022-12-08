@@ -4,6 +4,7 @@
 
 #include "unified_state_group.h"
 
+
 namespace oaz {
     template<typename T>
     void UnifiedStateGroup<T>::updateSingleState(T data, uint16_t actorID) {

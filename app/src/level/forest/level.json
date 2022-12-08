@@ -1,11 +1,15 @@
 {
-  "docType": "levelDescripter",
+  "docType": "levelDescriptor",
   "name": "forest",
   "uuid": "1ff45e44-22aa-4340-b229-ec18bffbf35e",
   "actors": [
     {
       "name": "cube",
       "uuid": "56fedddd-57c3-4c71-bea9-321ce52a51f6"
+    },
+    {
+      "name": "tt",
+      "uuid": "11fedddd-57c3-4c71-bea9-321ce52a51f6"
     }
   ]
 }

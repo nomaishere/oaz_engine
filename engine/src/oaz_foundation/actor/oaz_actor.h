@@ -5,6 +5,7 @@
 #ifndef OAZ_ACTOR_BASE_H
 #define OAZ_ACTOR_BASE_H
 
+
 namespace oaz {
 
     class Actor {
